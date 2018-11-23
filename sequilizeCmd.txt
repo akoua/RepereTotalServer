@@ -1,0 +1,25 @@
+sequelize init
+
+//Construction des tables
+
+sequelize model:create --name Magasin --attributes "nomMagasin:string domaine:string contacts:string email:string latitude:float longitude:float jourOuverture:string heureOuverture:string heureFermeture:string livraison:boolean commentaire:string"
+
+sequelize model:create --name Article  --attributes "nomArticle:string idMagasin:integer idTypeArticle:integer prix:float photos:string solde:float commentaire:string"
+
+sequelize model:create --name Service --attributes "idTypeService:integer heureDebut:string heureFin:string livraison:boolean commentaire:string"
+
+sequelize model:create --name ServiceMagasin --attributes "idMagasin:integer idService:integer"
+
+sequelize model:create --name Observation --attributes "vue:integer like:integer share:integer"
+
+sequelize model:create --name ObservationMagasin --attributes "idMagasin:integer idObservation:integer"
+
+sequelize model:create --name Proprietaire --attributes "tokenAuth:string network:string photo:string lastConno:date"
+
+sequelize model:create --name User --attributes "tokenAuth:string network:string"
+
+sequelize model:create --name ObservationUser --attributes "idUser:integer idObservation:integer idMagasin:integer isLike:integer isVue:boolean isShare:integer"
+
+sequelize model:create --name TypeArticle --attributes "libelle:string"
+
+sequelize model:create --name TypeService --attributes "libelle:string"
